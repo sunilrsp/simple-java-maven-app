@@ -40,7 +40,7 @@ pipeline {
                     url: "http://52.39.24.91:8081/artifactory",
                     credentialsId: "b406b84d-275e-47b8-8577-75468f2cedf8"
                 )
-
+/*
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
                     serverId: "ARTIFACTORY_SERVER",
@@ -53,7 +53,7 @@ pipeline {
                     serverId: "ARTIFACTORY_SERVER",
                     releaseRepo: "libs-release",
                     snapshotRepo: "libs-snapshot"
-                )
+                )*/
             }
         }
 /*
