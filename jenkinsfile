@@ -31,6 +31,7 @@ pipeline {
             steps {
                 git branch: 'master', url: "https://github.com/sunilrsp/simple-java-maven-app.git"
             }
+            }
                        stage('SonarQube analysis') {
         steps{
                 withSonarQubeEnv('SonarQubeServer') {
