@@ -27,9 +27,16 @@ pipeline {
                 sh 'ssh -i /tmp/my.pem centos@34.217.29.143 java -jar /tmp/my-app-1.0-SNAPSHOT.jar'
             }
         }
-                stage ('Clone') {
+        stage ('Clone') {
             steps {
                 git branch: 'master', url: "https://github.com/sunilrsp/simple-java-maven-app.git"
+            }
+                       stage('SonarQube analysis') {
+        steps{
+                withSonarQubeEnv('SonarQubeServer') {
+                // requires SonarQube Scanner for Maven 3.2+
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                }
             }
         }
 
